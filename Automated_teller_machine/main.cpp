@@ -4,7 +4,6 @@
 
 int main()
 {
-	Account* a1 = new Account("John","Smith",123456,1);
-	a1->printCardNumber();
+	TellerMachine* tellerMachine = new TellerMachine;
 	return 0;
 }

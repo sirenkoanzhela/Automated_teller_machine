@@ -14,6 +14,18 @@ public:
 	Account(std::string _name, std::string _surname, int _password, int _ID);
 	std::string createCardNumber();
 	bool changeAmountCapacity(int WithdrowalRequest);
+	std::string getCardNumber()
+	{
+		return cardNumber;
+	}
+	float getAmount()
+	{
+		return amount;
+	}
+	void setNewPassword(int _password)
+	{
+		password = _password;
+	}
 	void printCardNumber()
 	{
 		std::cout << cardNumber << std::endl;
