@@ -1,6 +1,13 @@
 #include "Teller_Machine.h"
 #include "Account.h"
 
+void TellerMachine::interfaceMachine()
+{
+	std::string checkCard;
+	std::cout << "Enter your card" << std::endl;
+	std::cin >> checkCard;
+}
+
 bool TellerMachine::checkWithdrawalLimit(float WithdrowalRequest)
 {
 	if ((WithdrowalRequest > maxCashWithdrawal)||(WithdrowalRequest<minCashWithdrawal))
@@ -17,6 +24,15 @@ bool TellerMachine::checkAvailableAmount(float WithdrowalRequest)
 		return false;
 	}
 	return true;
+}
+
+bool TellerMachine::checkAccountExistence(std::string cardNumber)
+{
+	for (it = listAccounts.begin(); it != listAccounts.end(); it++)
+	{
+		*it.->pr
+	}
+	return false;
 }
 
 void TellerMachine::sumCash(float WithdrowalRequest)
