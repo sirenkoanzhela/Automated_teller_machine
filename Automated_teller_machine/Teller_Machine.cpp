@@ -9,7 +9,7 @@ void TellerMachine::interfaceMachine()
 		std::cout << "Enter your card" << std::endl;
 		std::cin >> checkCard;
 		if (checkAccountExistence(checkCard))
-		{			
+		{
 			system("cls");
 			std::cout << "Select the operation you want to do:" << std::endl;
 			std::cout << "1.Cash Withdrowal" << std::endl;
@@ -71,15 +71,21 @@ void TellerMachine::interfaceMachine()
 		case 1: {
 			std::string name;
 			std::string surname;
-			int password;
+			int password = 0;
 			std::cout << "Enter you name:" << std::endl;
 			std::cin >> name;
 			std::cout << "Enter you Surname" << std::endl;
 			std::cin >> surname;
-			std::cout << "Enter password (it must be a 4-digit value):" << std::endl;
-			std::cin >> password;
+			while (true) {
+				std::cout << "Enter password (it must be a 4-digit value):" << std::endl;
+				std::cin >> password;
+				if ((password / 1000 > 0) && (password / 1000 < 10))
+				{
+					break;
+				}
+			}
 			createAccount(name, surname, password);
-			std::cout << "Your card's number is"<< currentAccount->getCardNumber() << std::endl;
+			std::cout << "Your card's number is: " << currentAccount->getCardNumber() << std::endl;
 			break;
 		}
 		case 2: {
@@ -91,7 +97,7 @@ void TellerMachine::interfaceMachine()
 
 bool TellerMachine::checkWithdrawalLimit(float WithdrowalRequest)
 {
-	if ((WithdrowalRequest > maxCashWithdrawal)||(WithdrowalRequest<minCashWithdrawal))
+	if ((WithdrowalRequest > maxCashWithdrawal) || (WithdrowalRequest < minCashWithdrawal))
 	{
 		return false;
 	}
@@ -129,7 +135,7 @@ void TellerMachine::Withdrowal(float WithdrowalRequest)
 void TellerMachine::createAccount(std::string _name, std::string _surname, int _password)
 {
 	counterAccounts++;
-	Account* account = new Account(_name,_surname,_password,counterAccounts);
+	Account* account = new Account(_name, _surname, _password, counterAccounts);
 	listAccounts.push_back(account);
 	currentAccount = account;
 }

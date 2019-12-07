@@ -25,10 +25,6 @@ public:
 	{
 		password = _password;
 	}
-	void printCardNumber()
-	{
-		std::cout << cardNumber << std::endl;
-	}
 private:
 	std::string createCardNumber();
 };
