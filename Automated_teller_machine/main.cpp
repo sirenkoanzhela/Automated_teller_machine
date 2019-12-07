@@ -5,5 +5,6 @@
 int main()
 {
 	TellerMachine* tellerMachine = new TellerMachine;
+	tellerMachine->interfaceMachine();
 	return 0;
 }

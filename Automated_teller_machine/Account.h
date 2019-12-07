@@ -12,7 +12,6 @@ class Account {
 public:
 	Account();
 	Account(std::string _name, std::string _surname, int _password, int _ID);
-	std::string createCardNumber();
 	bool changeAmountCapacity(int WithdrowalRequest);
 	std::string getCardNumber()
 	{
@@ -30,4 +29,6 @@ public:
 	{
 		std::cout << cardNumber << std::endl;
 	}
+private:
+	std::string createCardNumber();
 };
